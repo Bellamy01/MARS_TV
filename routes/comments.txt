@@ -1,0 +1,97 @@
+/* -----post-------------------- */
+
+
+/* const newgenre = {
+        id:genres.length+1,
+        name:req.body.name
+    }
+
+    const valid_genre = validateGenre(req.body);
+    const {error} = validateGenre(req.body)
+    if(error){
+        res.status(400).send(error.details[0].message);
+        return;
+    }
+
+    genres.push(newgenre);
+    res.send(newgenre); */
+
+
+
+    /* ==================================================== */
+
+/* 
+const express = require('express');
+const mongoose = require('mongoose');
+
+
+mongoose.connect("mongodb://127.0.0.1:27017/mars_tv");
+
+mongoose.connection
+    .once('open',()=>console.log('Successfully connected to MongoDB server...'))
+    .on('error',(error)=>console.log('Your error: ',error));
+
+
+//set the schema for genres
+
+
+
+
+ async function createGenre(req,res){
+     const Genres  = mongoose.model('Genres',genreSchema);
+
+    const newgenre = new Genres({
+        name:req.body.name,
+        isPublished:req.body.isPublished,
+        price:req.body.price
+    })
+    const valid_genre = validateGenre(req.body);
+    const { error } = validateGenre(req.body);
+
+    if(error){
+        return res.status(400).send(error.details[0].message);
+    }
+    
+    try{
+        const result = await newgenre.save();
+        console.log(result);
+        res.send(newgenre);
+    }
+    catch(ex){
+        for(field in ex.error){
+           console.log(ex.erro[field].message); 
+        }
+    }
+}
+
+function validateGenre(genre){
+const genreSchema = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true,
+        minlength:5,
+        maxlength:40
+    },
+    date:{
+        type:Date,
+        default:Date.now()
+    },
+    isPublished:{
+        type:Boolean,
+        required:true
+    },
+    price:{
+        type:Number,
+        min:0,
+        max:255,
+        required:function(){return this.isPublished},
+        get:(v)=>Math.round(v),
+        set:(v)=>Math.round(v)
+    }
+
+});
+    
+    return genreSchema.validate(genre);
+}
+
+module.exports.createGenre = createGenre(); */
